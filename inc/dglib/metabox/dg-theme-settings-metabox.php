@@ -19,8 +19,10 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
             
             global $post, $np_allowed_textarea;
 
+            $_all_post_vals = wp_unslash( $_POST );
+
             // Verify the nonce before proceeding.
-            $dglib_post_nonce   = isset( $_POST['dglib_post_meta_nonce'] ) ? $_POST['dglib_post_meta_nonce'] : '';
+            $dglib_post_nonce   = isset( $_all_post_vals['dglib_post_meta_nonce'] ) ? esc_html($_all_post_vals['dglib_post_meta_nonce']) : '';
             $dglib_post_nonce_action = basename( __FILE__ );
 
             //* Check if nonce is set...
@@ -52,7 +54,7 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
              * Post sidebar
              */
             
-            $dglib_single_sidebar_details = isset( $_POST['dglib_single_post_sidebar'] ) ? $_POST['dglib_single_post_sidebar'] : array();
+            $dglib_single_sidebar_details = isset( $_all_post_vals['dglib_single_post_sidebar'] ) ? $_all_post_vals['dglib_single_post_sidebar'] : array();
             $dglib_single_post_sidebar = array_map( 'esc_attr', $dglib_single_sidebar_details );
             update_post_meta ( $post_id, 'dglib_single_post_sidebar', $dglib_single_post_sidebar );
 
@@ -60,7 +62,7 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
              * post meta identity
              */
             $dglib_post_meta_identity = get_post_meta( $post_id, 'dglib_theme_settings_metabox_tab', true );
-            $sanitize_post_identity = sanitize_text_field( $_POST[ 'dglib_theme_settings_metabox_tab' ] );
+            $sanitize_post_identity = sanitize_text_field( $_all_post_vals[ 'dglib_theme_settings_metabox_tab' ] );
 
             if ( $sanitize_post_identity && '' == $sanitize_post_identity ){
                 add_post_meta( $post_id, 'dglib_theme_settings_metabox_tab', $sanitize_post_identity );
@@ -242,7 +244,9 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
             </style> 
             <div class="dglib-metabox-theme-settings dg-widget-field-tab-wraper">
                 <div class="nav-tab-wrapper dg-widget-tab-list">
-                    <?php foreach($dglib_metabox_tabs as $dglib_tab_slug => $tabs_details){ 
+                    <?php 
+                    $dglib_theme_settings_metabox_tab = ($dglib_theme_settings_metabox_tab) ? $dglib_theme_settings_metabox_tab : 'dglib_single_post_sidebar';
+                    foreach($dglib_metabox_tabs as $dglib_tab_slug => $tabs_details){ 
                         $dg_metabox_field_title = (isset($tabs_details['dg_metabox_field_title'])) ? esc_html($tabs_details['dg_metabox_field_title']) : '';
                         $dg_metabox_field_dashicons = (isset($tabs_details['dg_metabox_field_dashicons'])) ? esc_html($tabs_details['dg_metabox_field_dashicons']) : '';
                         ?>
@@ -256,7 +260,7 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
                         $dg_metabox_field_description = (isset($tabs_details['dg_metabox_field_description'])) ? esc_html($tabs_details['dg_metabox_field_description']) : '';
                         $dglib_tab_fields = (isset($dglib_metabox_fields[$dglib_tab_slug] ) ) ? $dglib_metabox_fields[$dglib_tab_slug] : array();
                         ?>
-                        <div data-value="<?php echo $dglib_theme_settings_metabox_tab.':'.$dglib_tab_slug; ?>" class="dg-tab-contents <?php echo ( $dglib_theme_settings_metabox_tab==$dglib_tab_slug ) ? 'dg-tab-active' : ''; ?>" id="dglib_theme_option_content_<?php echo esc_attr($dglib_tab_slug); ?>">
+                        <div data-value="<?php echo esc_attr($dglib_theme_settings_metabox_tab.':'.$dglib_tab_slug); ?>" class="dg-tab-contents <?php echo ( $dglib_theme_settings_metabox_tab==$dglib_tab_slug ) ? 'dg-tab-active' : ''; ?>" id="dglib_theme_option_content_<?php echo esc_attr($dglib_tab_slug); ?>">
                             <div class="dglib-tab-content-header">
                                 <h3><?php echo esc_html($dg_metabox_field_heading); ?></h3> 
                                 <p><?php echo esc_html($dg_metabox_field_description); ?></p>

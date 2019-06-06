@@ -162,13 +162,6 @@ if (!class_exists('Dglib_Author_Info_Widget')) {
                                     'dg_widget_field_default'  => '',
                                     'dg_widget_field_type'     => 'text',
                                 ),
-                                'show_social_media'=>array(
-                                    'dg_widget_field_name'     => 'show_social_media',
-                                    'tcy_widget_field_wraper'   => 'show-social-media',
-                                    'dg_widget_field_title'    => esc_html__( 'Show Social Media', '__Text_Domain__' ),
-                                    'dg_widget_field_default'  => '',
-                                    'dg_widget_field_type'     => 'checkbox',
-                                ),
                             )
                         )
                     )
@@ -213,7 +206,6 @@ if (!class_exists('Dglib_Author_Info_Widget')) {
             $description_limit = isset( $instance['description_limit'] ) ? absint( $instance['description_limit'] ) : '';
             $author_link_target = isset( $instance['author_link_target'] ) ? esc_attr( $instance['author_link_target'] ) : '';
             $all_link_text = isset( $instance['all_link_text'] ) ? esc_html( $instance['all_link_text'] ) : '';
-            $show_social_media = isset( $instance['show_social_media'] ) ? absint( $instance['show_social_media'] ) : '';
 
             //Get origional Author Link for author_id
             $author_link = get_author_posts_url( get_the_author_meta( 'ID', $author_id ) );
@@ -237,11 +229,8 @@ if (!class_exists('Dglib_Author_Info_Widget')) {
                 <?php } ?>
                 <div class="card-content">
                     <?php 
-                    if ( $show_social_media ) {
-                        //lekh_social_media();
-                    } 
                     if ( ! empty( $author_designation ) ): 
-                        ?><h5 class="category text-gray"><?php echo $author_designation ?></h5><?php 
+                        ?><h5 class="category text-gray"><?php echo esc_html( $author_designation ) ?></h5><?php 
                     endif; 
                     ?>
                     <h4 class="card-title"><?php echo get_the_author_meta( 'display_name', $author_id ); ?></h4>
@@ -252,8 +241,8 @@ if (!class_exists('Dglib_Author_Info_Widget')) {
                             $description = get_the_author_meta( 'description', $author_id ); 
                             echo wpautop( $this->trim_chars( $description, $description_limit ) );
                             if ( $author_link_target && $all_link_text ) : 
-                                ?><a href="<?php echo $author_link; ?>"
-                                 class="button secondary radius "><?php echo $all_link_text; ?></a><?php 
+                                ?><a href="<?php echo esc_url( $author_link ); ?>"
+                                 class="button secondary radius "><?php echo esc_html( $all_link_text ); ?></a><?php 
                              endif;
                              ?>
                          </div>

@@ -22,11 +22,7 @@
 		'option_none_value'     => 0 // string
 	);
 	wp_dropdown_pages( $args );
-	if($dg_widget_field_value){
-		/*?>
-		<a href="<?php echo get_edit_post_link($dg_widget_field_value ); ?>" target="_blank"><?php esc_html_e('Edit Page', '__Text_Domain__') ?></a>
-		<?php */
-	}
+
 	if ( isset( $dg_widget_field_description ) ) { 
 		?>
 		<br/>

@@ -86,7 +86,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 						foreach ( $repeater_fields as $key => $field_single ) {
 							$class = isset( $field_single['class'] ) ? $field_single['class'] : '';
 							?>
-                            <div class="single-field type-<?php echo esc_attr( $field_single['type'] ) . ' ' . $class; ?>">
+                            <div class="single-field type-<?php echo esc_attr( $field_single['type'] ) . ' ' . esc_attr($class); ?>">
 								<?php
 								$label       = isset( $field_single['label'] ) ? $field_single['label'] : '';
 								$description = isset( $field_single['description'] ) ? $field_single['description'] : '';
@@ -132,6 +132,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 										echo '<input class="dg-color-picker" data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="text" value="' . esc_url( $new_value ) . '"/>';
 										break;
 									case 'reaction':
+										$reaction_default_val = 'like';
 										?>
 										<div class="dg-imageoption-wrapper">
 											<?php 
@@ -149,7 +150,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 													id="<?php echo esc_attr($key.'_'.$reaction_slug); ?>" 
 													data-default="<?php esc_attr( $default ); ?>"
 													value="<?php $reaction_slug; ?>" 
-													<?php checked( $new_value, $reaction_slug); ?> 
+													<?php checked( $reaction_default_val, $reaction_slug); ?> 
 													/> 
 													<label 
 													class="dg-customizer-imageoption-label" 
@@ -221,7 +222,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 							foreach ( $repeater_fields as $key => $field_single ) {
 								$class = isset( $field_single['class'] ) ? $field_single['class'] : '';
 								?>
-                                <div class="single-field type-<?php echo esc_attr( $field_single['type'] ) . ' ' . $class; ?>">
+                                <div class="single-field type-<?php echo esc_attr( $field_single['type'] ) . ' ' . esc_attr($class); ?>">
 									<?php
 									$label       = isset( $field_single['label'] ) ? $field_single['label'] : '';
 									$description = isset( $field_single['description'] ) ? $field_single['description'] : '';

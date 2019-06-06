@@ -11,8 +11,11 @@ if(!function_exists('dglib_reaction_submit_data_callback')):
 			'current_update' => false,
 			'message' => false,
 		);
+
+		$_post_values = wp_unslash( $_POST );
+
         // Verify the nonce before proceeding.
-		$dglib_reaction_nonce   = isset( $_POST['reaction_icon_nonce'] ) ? esc_html($_POST['reaction_icon_nonce']) : '';
+		$dglib_reaction_nonce   = isset( $_post_values['reaction_icon_nonce'] ) ? esc_html($_post_values['reaction_icon_nonce']) : '';
 		$dglib_nonce_reaction_action = 'dglib_post_reaction_nonce';
 
         // Check if nonce is set...
@@ -27,21 +30,21 @@ if(!function_exists('dglib_reaction_submit_data_callback')):
 			wp_send_json($response);
 		}
 
-		$singular_post_id   = isset( $_POST['singular_post_id'] ) ? absint($_POST['singular_post_id']) : 0;
+		$singular_post_id   = isset( $_post_values['singular_post_id'] ) ? absint($_post_values['singular_post_id']) : 0;
 		// Check if singular post id is exist...
 		if( !$singular_post_id ){
 			$response['message'] = esc_html__( 'Post id not found.', '__Text_Domain__' );
 			wp_send_json($response);
 		}
 
-		$reaction_icon_name   = isset( $_POST['reaction_icon_name'] ) ? esc_attr($_POST['reaction_icon_name']) : '';
+		$reaction_icon_name   = isset( $_post_values['reaction_icon_name'] ) ? esc_attr($_post_values['reaction_icon_name']) : '';
 		// Check if reaction name is exist...
 		if( !$reaction_icon_name ){
 			$response['message'] = esc_html__( 'Reaction value not found.', '__Text_Domain__' );
 			wp_send_json($response);
 		}
 
-		$reaction_prev_icon   = isset( $_POST['reaction_prev_icon'] ) ? esc_attr($_POST['reaction_prev_icon']) : '';
+		$reaction_prev_icon   = isset( $_post_values['reaction_prev_icon'] ) ? esc_attr($_post_values['reaction_prev_icon']) : '';
 		// Check if same reaction is already submitted...
 		if($reaction_icon_name==$reaction_prev_icon){
 			$response['message'] = esc_html__( 'You are already react on this emoji.', '__Text_Domain__' );

@@ -147,10 +147,10 @@ if(!function_exists('dglib_mega_menu_item_form')):
 										id="<?php echo esc_attr( $id.'_'.$taxonomy.'_'.$tcy_term_id ); ?>" 
 										name="<?php echo esc_attr( $field_name ); ?>" 
 										type="checkbox" 
-										value="<?php echo $tcy_term_id; ?>" 
+										value="<?php echo esc_attr($tcy_term_id); ?>" 
 										<?php checked(in_array($tcy_term_id, (array)$value)); ?> 
 										/>
-										<label for="<?php echo esc_attr( $id.'_'.$taxonomy.'_'.$tcy_term_id ); ?>"><?php echo esc_html( $tcy_term_name ).' ('.$single_term->count.')'; ?></label>
+										<label for="<?php echo esc_attr( $id.'_'.$taxonomy.'_'.$tcy_term_id ); ?>"><?php echo esc_html( $tcy_term_name .' ('.$single_term->count.')' ); ?></label>
 									</li>
 									<?php
 								}
@@ -171,7 +171,7 @@ if(!function_exists('dglib_mega_menu_item_form')):
 				<?php
 				break;
 				default:
-				?><p class="dg-menu-field-wrapper field-<?php echo esc_attr($name); ?> <?php echo esc_attr($name); ?> <?php echo esc_attr($name); ?>-wide"><?php echo esc_html__('Field ', '__Text_Domain__') . $type . esc_html__( ' not found.', '__Text_Domain__'); ?></p><?php
+				?><p class="dg-menu-field-wrapper field-<?php echo esc_attr($name); ?> <?php echo esc_attr($name); ?> <?php echo esc_attr($name); ?>-wide"><?php echo esc_html__('Field ', '__Text_Domain__') . esc_html($type) . esc_html__( ' not found.', '__Text_Domain__'); ?></p><?php
 				break;
 			}
 		}
@@ -192,7 +192,8 @@ if(!function_exists('dglib_update_mega_menu_item')):
 		$megamenu_fields = dglib_megamenu_field_list();
 		$megamenu_options = 'menu-item-dglib-megamenu';
 		$sanitize_value = array();
-		$megamenu_values = (isset($_POST[ $megamenu_options ][ $menu_item_db_id ])) ? $_POST[ $megamenu_options ][ $menu_item_db_id ] : array();
+		$_all_post_vals = wp_unslash( $_POST );
+		$megamenu_values = (isset($_all_post_vals[ $megamenu_options ][ $menu_item_db_id ])) ? $_all_post_vals[ $megamenu_options ][ $menu_item_db_id ] : array();
 		foreach($megamenu_fields as $single_field){
 			$name = (isset($single_field['name'])) ? esc_attr($single_field['name']) : '';
 			$type = (isset($single_field['type'])) ? esc_attr($single_field['type']) : '';
