@@ -7,7 +7,7 @@
  * @since ColorMag 1.0
  */
 get_header();
-
+do_action( 'dglib_breadcrumbs_section_template' );
 ?>
 
 <div id="primary">

@@ -239,6 +239,121 @@
   scrollbar-color: #029fb2 #dedede;
   scrollbar-width: thin; }
 
+.dglib-breadcrumbs-wrapper {
+  background-color: #fdfdfd;
+  margin-bottom: 15px; }
+  .dglib-breadcrumbs-wrapper .has-image {
+    width: 100%;
+    height: 200px;
+    display: table;
+    table-layout: fixed;
+    background-size: cover;
+    background-color: #f5f5f5;
+    background-position: center center; }
+    .dglib-breadcrumbs-wrapper .has-image .breadcrumbs {
+      text-align: center;
+      display: inline-block; }
+    .dglib-breadcrumbs-wrapper .has-image .dglib-bdcb-container {
+      padding: 15px;
+      display: table-cell;
+      vertical-align: middle; }
+  .dglib-breadcrumbs-wrapper .layout1 {
+    padding: 10px 0;
+    color: #aaa;
+    margin-top: -10px;
+    font-family: inherit; }
+    .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container > div {
+      overflow: hidden; }
+    .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container .breadcrumb-trail .trail-items {
+      margin: 0;
+      padding: 15px; }
+      .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container .breadcrumb-trail .trail-items:after {
+        content: "";
+        clear: both;
+        display: block; }
+    .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container .breadcrumb-trail li {
+      display: block;
+      float: left;
+      list-style: outside none none;
+      padding-right: 10px; }
+      .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container .breadcrumb-trail li::after {
+        content: "\f105";
+        font-family: "FontAwesome";
+        margin-left: 10px;
+        font-size: 11px;
+        color: #aaa; }
+      .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container .breadcrumb-trail li:last-child::after {
+        content: ''; }
+      .dglib-breadcrumbs-wrapper .layout1 .dglib-bdcb-container .breadcrumb-trail li:last-child span {
+        color: #000; }
+    .dglib-breadcrumbs-wrapper .layout1 a {
+      color: #c3c3c3; }
+      .dglib-breadcrumbs-wrapper .layout1 a:hover {
+        color: #000; }
+
+.dglib-breadcrumbs-wrapper .layout2 .trail-browse {
+  display: none; }
+
+.dglib-breadcrumbs-wrapper .layout2 ul {
+  margin: 0;
+  padding: 15px;
+  list-style: none; }
+  .dglib-breadcrumbs-wrapper .layout2 ul:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.dglib-breadcrumbs-wrapper .layout2 li {
+  float: left;
+  display: block;
+  position: relative;
+  margin: 0 8px;
+  margin-top: 3px; }
+  .dglib-breadcrumbs-wrapper .layout2 li > a, .dglib-breadcrumbs-wrapper .layout2 li > span {
+    -webkit-transition: unset;
+    -o-transition: unset;
+    -moz-transition: unset;
+    transition: unset;
+    color: #fff;
+    padding: 0 10px;
+    line-height: 2em;
+    display: block;
+    background-color: #9b8282; }
+  .dglib-breadcrumbs-wrapper .layout2 li:before, .dglib-breadcrumbs-wrapper .layout2 li:after {
+    top: 0;
+    right: -11px;
+    content: "";
+    height: 0px;
+    width: 0px;
+    display: block;
+    position: absolute;
+    border: 15px solid transparent;
+    border-width: 15px 0 15px 11px;
+    border-left-color: #9b8282;
+    height: 100%; }
+  .dglib-breadcrumbs-wrapper .layout2 li:after {
+    right: -11px; }
+  .dglib-breadcrumbs-wrapper .layout2 li:before {
+    left: -11px;
+    border-color: #9b8282;
+    border-left-color: transparent; }
+  .dglib-breadcrumbs-wrapper .layout2 li.trail-end > a, .dglib-breadcrumbs-wrapper .layout2 li.trail-end > span, .dglib-breadcrumbs-wrapper .layout2 li:hover > a, .dglib-breadcrumbs-wrapper .layout2 li:hover > span {
+    background-color: #303440;
+    -webkit-transition: unset;
+    -o-transition: unset;
+    -moz-transition: unset;
+    transition: unset; }
+  .dglib-breadcrumbs-wrapper .layout2 li.trail-end:after, .dglib-breadcrumbs-wrapper .layout2 li:hover:after {
+    border-left-color: #303440; }
+  .dglib-breadcrumbs-wrapper .layout2 li.trail-end:before, .dglib-breadcrumbs-wrapper .layout2 li:hover:before {
+    border-color: #303440;
+    border-left-color: transparent; }
+  .dglib-breadcrumbs-wrapper .layout2 li:first-of-type:before {
+    display: none; }
+
+.dglib-breadcrumbs-wrapper ul.trail-items li.trail-item:nth-of-type(1) {
+  margin-left: 0; }
+
 .dblib-reaction-wrapper {
   padding: 40px;
   background-color: #f4f8fb; }

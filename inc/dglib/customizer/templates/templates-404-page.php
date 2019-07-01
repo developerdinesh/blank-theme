@@ -1,16 +1,16 @@
 <?php
 /**
- * Template Post
+ * Template Archive
  * @package dineshghimire
  * @subpackage dblib
  * @since 1.0.0
  */
 $wp_customize->add_section(
-    'template_page_options', 
+    'template_notfound_options', 
     array(
-        'title' => esc_html__('Page Options', '__Text_Domain__'),
+        'title' => esc_html__('404 Options', '__Text_Domain__'),
         'panel' => 'site_template_options',
-        'priority' => 30,
+        'priority' => 70,
     )
 );
 
@@ -20,7 +20,7 @@ $wp_customize->add_section(
  * @since 1.0.0
  */
 $wp_customize->add_setting(
-    'dglib_enable_breadcrumbs_page', array(
+    'dglib_enable_breadcrumbs_notfound', array(
         'sanitize_callback' => 'esc_attr',
         'default'           => 'enable',
     )
@@ -28,17 +28,18 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Dglib_Customize_Switch_Control(
         $wp_customize, 
-        'dglib_enable_breadcrumbs_page', 
+        'dglib_enable_breadcrumbs_notfound', 
         array(
             'label' => esc_html__('Enable Breadcrumbs?', '__Text_Domain__'),
-            'section' => 'template_page_options',
+            'section' => 'template_notfound_options',
+            'settings' => 'dglib_enable_breadcrumbs_notfound',
             'priority' => 10,
             'type'=>'switch',
             'choices'=> array(
                 'enable'=> esc_html__('Enable', '__Text_Domain__'),
                 'disable'=> esc_html__('Disable', '__Text_Domain__'),
             ),
-            'description'=> esc_html__('You can enable breadcrumbs to show before page details.', '__Text_Domain__'),
+            'description'=> esc_html__('You can enable breadcrumbs to show before notfound page.', '__Text_Domain__'),
         )
     )
 );
@@ -49,7 +50,7 @@ $wp_customize->add_control(
  * @since 1.0.0
  */
 $wp_customize->add_setting(
-    'dglib_default_page_sidebar',
+    'dglib_default_notfound_sidebar',
     array(
         'default'           => 'right_sidebar',
         'sanitize_callback' => 'sanitize_key',
@@ -58,11 +59,11 @@ $wp_customize->add_setting(
 $wp_customize->add_control( 
     new Dglib_Customize_Imageoptions_Control(
         $wp_customize,
-        'dglib_default_page_sidebar',
+        'dglib_default_notfound_sidebar',
         array(
             'label'    => esc_html__( 'Sidebar Layout', '__Text_Domain__' ),
             'description' => esc_html__( 'Choose sidebar from available layouts', '__Text_Domain__' ),
-            'section'  => 'template_page_options',
+            'section'  => 'template_notfound_options',
             'choices'  => array(
                 'left_sidebar' => array(
                     'label' => esc_html__( 'Left Sidebar', '__Text_Domain__' ),
@@ -91,61 +92,47 @@ $wp_customize->add_control(
 );
 
 /**
- * Enable Featured Image
+ * 404 Page Title
  *
  * @since 1.0.0
  */
 $wp_customize->add_setting(
-    'dglib_enable_featured_image_page', array(
+    'dglib_notfound_page_title', array(
         'sanitize_callback' => 'esc_attr',
-        'default'           => 'show',
+        'default'           => esc_html__( 'Oops! That page can’t be found.', '__Text_Domain__'),
     )
 );
 $wp_customize->add_control(
-    new Dglib_Customize_Switch_Control(
-        $wp_customize, 
-        'dglib_enable_featured_image_page', 
-        array(
-            'label' => esc_html__('Show Featured Image?', '__Text_Domain__'),
-            'section' => 'template_page_options',
-            'priority' => 30,
-            'type'=>'switch',
-            'choices'=> array(
-                'show'=> esc_html__('Show', '__Text_Domain__'),
-                'hide'=> esc_html__('Hide', '__Text_Domain__'),
-            ),
-            'description'=> esc_html__('If you can show featured image on single page check on show button.', '__Text_Domain__'),
-        )
+    'dglib_notfound_page_title', 
+    array(
+        'type'=>'text',
+        'priority' => 30,
+        'label' => esc_html__('404 Page Title', '__Text_Domain__'),
+        'section' => 'template_notfound_options',
+        'settings' => 'dglib_notfound_page_title',
+        'description'=> esc_html__('Please enter title to display on 404 page.', '__Text_Domain__'),
     )
 );
-
 
 /**
- * Enable Reactions on Page
+ * 404 Page Title
  *
  * @since 1.0.0
  */
 $wp_customize->add_setting(
-    'dglib_enable_reaction_page', array(
+    'dglib_notfound_page_description', array(
         'sanitize_callback' => 'esc_attr',
-        'default' => 'disable',
+        'default'           => esc_html__( 'It looks like nothing was found at this location. Maybe try a search?', '__Text_Domain__'),
     )
 );
 $wp_customize->add_control(
-    new Dglib_Customize_Switch_Control(
-        $wp_customize, 
-        'dglib_enable_reaction_page', 
-        array(
-            'label' => esc_html__('Enable Reactions', '__Text_Domain__'),
-            'section' => 'template_page_options',
-            'priority' => 40,
-            'type'=>'switch',
-            'choices'=> array(
-                'enable'=> esc_html__('Enable', '__Text_Domain__'),
-                'disable'=> esc_html__('Disable', '__Text_Domain__'),
-            ),
-            'description'=> esc_html__('You can enable reaction to show after page details.', '__Text_Domain__'),
-        )
+    'dglib_notfound_page_description', 
+    array(
+        'type'=>'textarea',
+        'priority' => 40,
+        'label' => esc_html__('404 Page Description', '__Text_Domain__'),
+        'section' => 'template_notfound_options',
+        'settings' => 'dglib_notfound_page_description',
+        'description'=> esc_html__('Please enter description to display on 404 page.', '__Text_Domain__'),
     )
 );
-

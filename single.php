@@ -7,6 +7,7 @@
  * @since ColorMag 1.0
  */
 get_header();
+do_action( 'dglib_breadcrumbs_section_template' );
 ?>
 <div id="primary">
   <div id="content" class="clearfix">
@@ -30,6 +31,7 @@ endif;
 // If comments are open or we have at least one comment, load up the comment template
 if ( comments_open() || get_comments_number() )
    comments_template();
+do_action( 'dblib_reaction_section_icons' );
 ?>
 </div><!-- #primary -->
 <?php 

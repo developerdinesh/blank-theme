@@ -12,3 +12,5 @@ $wp_customize->add_panel(
 		'description'    => esc_html__('Footer related settings and sections goes here. You can manage footer from this panel.', '__Text_Domain__'),
 	)
 );
+
+require_once dglib_file_directory( 'customizer/footer/section-bottom-footer.php' );

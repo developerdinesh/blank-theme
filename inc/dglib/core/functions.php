@@ -346,3 +346,21 @@ if( !function_exists('dglib_array_column') ){
 	}
 
 }
+
+/*
+ * Taxonomy List
+ */
+
+if( !function_exists('dglib_taxonomy_list') ):
+	
+	function dglib_taxonomy_list( $post_type = 'post' ){
+
+		$taxonomy_names = get_object_taxonomies( $post_type, 'names' );
+
+		$taxonomy_list = array_combine($taxonomy_names, $taxonomy_names );
+		
+		return $taxonomy_list;
+
+	}
+
+endif;

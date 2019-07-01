@@ -77,4 +77,4 @@ if(!function_exists('dblib_reaction_icons_callback')):
 	}
 
 endif;
-add_action('dblib_reaction_section_icons', 'dblib_reaction_icons_callback' );
+add_action('dblib_reaction_section_icons', 'dblib_reaction_icons_callback', 10 );

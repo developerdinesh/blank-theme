@@ -1,6 +1,9 @@
 <?php
-/*
- * Panel Templates
+/**
+ * Template Post
+ * @package dineshghimire
+ * @subpackage dblib
+ * @since 1.0.0
  */
 $wp_customize->add_panel(
 	'site_template_options',
@@ -16,3 +19,7 @@ $wp_customize->add_panel(
 require_once dglib_file_directory( 'customizer/templates/templates-homepage.php' );
 require_once dglib_file_directory( 'customizer/templates/templates-post-single.php' );
 require_once dglib_file_directory( 'customizer/templates/templates-page-details.php' );
+require_once dglib_file_directory( 'customizer/templates/templates-archive-page.php' );
+require_once dglib_file_directory( 'customizer/templates/templates-blog-page.php' );
+require_once dglib_file_directory( 'customizer/templates/templates-search-page.php' );
+require_once dglib_file_directory( 'customizer/templates/templates-404-page.php' );
