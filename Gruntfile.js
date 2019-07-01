@@ -7,10 +7,10 @@ module.exports = function (grunt) {
 
         // Setting folder templates.
         dirs: {
-            js: 'inc/dglib/assets/parts/controls/js',
-            css: 'inc/dglib/assets/parts/controls/css',
-            scss: 'inc/dglib/assets/parts/controls/scss',
-            img: 'inc/dglib/assets/parts/controls/img',
+            js: 'inc/dglib/assets/js',
+            css: 'inc/dglib/assets/css',
+            scss: 'inc/dglib/assets/scss',
+            img: 'inc/dglib/assets/img',
         },
 
         // JavaScript linting with JSHint.

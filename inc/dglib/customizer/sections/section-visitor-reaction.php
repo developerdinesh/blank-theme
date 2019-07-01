@@ -79,12 +79,7 @@ $wp_customize->add_setting(
     'dglib_reaction_icons', 
     array(
         'sanitize_callback' => 'dglib_sanitize_repeater_data',
-        'default' => json_encode( 
-            array(
-                'reaction_icon_name' => 'like',
-                'reaction_icon_title' => '',
-            ) 
-        ),
+        'default' => '',
     )
 );
 $wp_customize->add_control(

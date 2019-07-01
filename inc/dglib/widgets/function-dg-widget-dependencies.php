@@ -35,7 +35,7 @@ if( ! function_exists( 'dglib_widget_title_callback' ) ) :
 				$title_other_html .= '<ul class="wdgt-title-tabs">';
 				if($default_tablabel){
 					$title_other_html .= '<li class="wdgt-tab-term active-item">';
-					$title_other_html .= '<a data-tab="blgmg-tab-alldata" class="dgwidgt-title-tab" href="#">';
+					$title_other_html .= '<a data-tab="dglib-tab-alldata" class="dgwidgt-title-tab" href="#">';
 					$title_other_html .= $default_tablabel;
 					$title_other_html .= '</a>';
 					$title_other_html .= '</li>';

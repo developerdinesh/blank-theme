@@ -321,14 +321,14 @@ endif;
 if( !function_exists('dglib_array_column') ){
 
 	function dglib_array_column( array $input, $columnKey, $indexKey = null ){
-		$array = array();
+		$array_col = array();
         foreach ($input as $value) {
             if ( !array_key_exists($columnKey, $value)) {
                 trigger_error("Key \"$columnKey\" does not exist in array");
                 return false;
             }
             if (is_null($indexKey)) {
-                $array[] = $value[$columnKey];
+                $array_col[] = $value[$columnKey];
             }
             else {
                 if ( !array_key_exists($indexKey, $value)) {
@@ -339,10 +339,10 @@ if( !function_exists('dglib_array_column') ){
                     trigger_error("Key \"$indexKey\" does not contain scalar value");
                     return false;
                 }
-                $array[$value[$indexKey]] = $value[$columnKey];
+                $array_col[$value[$indexKey]] = $value[$columnKey];
             }
         }
-        return $array;
+        return $array_col;
 	}
 
 }

@@ -148,8 +148,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 													data-name="<?php echo esc_attr( $key ); ?>"
 													class="dglib-imageoption-radio" 
 													id="<?php echo esc_attr($key.'_'.$reaction_slug); ?>" 
-													data-default="<?php esc_attr( $default ); ?>"
-													value="<?php $reaction_slug; ?>" 
+													value="<?php echo esc_attr($reaction_slug); ?>" 
 													<?php checked( $reaction_default_val, $reaction_slug); ?> 
 													/> 
 													<label 
