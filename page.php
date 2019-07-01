@@ -20,6 +20,7 @@ do_action( 'dglib_breadcrumbs_section_template' );
       get_template_part( 'template-parts/content', 'single' );
 
    endwhile; 
+   do_action('dblib_reaction_section_icons');
    ?>
 </div><!-- #content -->
 

@@ -6,6 +6,19 @@ if(!function_exists('dblib_reaction_icons_callback')):
 
 	function dblib_reaction_icons_callback(){
 
+		$enable_reaction = 'disable';
+		if( is_single() ){
+			$enable_reaction = get_theme_mod( 'dglib_enable_reaction_post', 'enable' );
+		}
+
+		if( is_page() ){
+			$enable_reaction = get_theme_mod( 'dglib_enable_reaction_page', 'disable' );
+		}
+
+		if($enable_reaction == 'disable' ){
+			return;
+		}
+
 		$visitor_reaction_heading = get_theme_mod( 'visitor_reaction_heading', false );
 		$display_reaction_value = get_theme_mod( 'display_reaction_value', 'percentage' );
 		$visitor_reaction_icons_json = get_theme_mod( 'dglib_reaction_icons', false );

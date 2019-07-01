@@ -19,7 +19,7 @@ do_action( 'dglib_breadcrumbs_section_template' );
 </div><!-- #content -->
 <?php 
 get_template_part( 'navigation', 'single' );
-do_action('dblib_reaction_section_icons');
+
 if ( get_the_author_meta( 'description' ) ) : ?>
    <div class="author-box">
       <div class="author-img"><?php echo get_avatar( get_the_author_meta( 'user_email' ), '100' ); ?></div>
@@ -28,10 +28,10 @@ if ( get_the_author_meta( 'description' ) ) : ?>
    </div>
 <?php 
 endif;
+do_action('dblib_reaction_section_icons');
 // If comments are open or we have at least one comment, load up the comment template
 if ( comments_open() || get_comments_number() )
    comments_template();
-do_action( 'dblib_reaction_section_icons' );
 ?>
 </div><!-- #primary -->
 <?php 
