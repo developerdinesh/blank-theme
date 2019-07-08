@@ -3,6 +3,11 @@
  * @subpackage dglib
  * @since 1.0.0
  */
+/*
+ * @package dineshghimire
+ * @subpackage dglib
+ * @since 1.0.0
+ */
 .menu-item .fa {
   display: inline-block;
   padding: 0 5px 0 0;
@@ -354,11 +359,11 @@
 .dglib-breadcrumbs-wrapper ul.trail-items li.trail-item:nth-of-type(1) {
   margin-left: 0; }
 
-.dblib-reaction-wrapper {
+.dglib-reaction-wrapper {
   padding: 40px;
   background-color: #f4f8fb; }
 
-.dblib-reaction-header {
+.dglib-reaction-header {
   text-align: center; }
 
 .dglib-reaction-list {
@@ -379,7 +384,7 @@
 .reaction-item-wrapper {
   padding-bottom: 30px; }
 
-.dblib-reaction-image-wrap {
+.dglib-reaction-image-wrap {
   width: 100px;
   height: 100px;
   display: block;
@@ -391,7 +396,7 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #dedede; }
-  .dblib-reaction-image-wrap img {
+  .dglib-reaction-image-wrap img {
     margin: 0;
     width: 100%;
     height: auto;
@@ -400,13 +405,13 @@
     -o-transition: width 0.5s, margin 0.5s;
     -moz-transition: width 0.5s, margin 0.5s;
     transition: width 0.5s, margin 0.5s; }
-  .dblib-reaction-image-wrap:hover, .dblib-reaction-image-wrap.active {
+  .dglib-reaction-image-wrap:hover, .dglib-reaction-image-wrap.active {
     background-color: #289dcc; }
-    .dblib-reaction-image-wrap:hover img, .dblib-reaction-image-wrap.active img {
+    .dglib-reaction-image-wrap:hover img, .dglib-reaction-image-wrap.active img {
       margin: -5px;
       width: 120%; }
 
-.dblib-reaction-count {
+.dglib-reaction-count {
   width: 100%;
   color: #fff;
   height: 30px;
@@ -439,4 +444,112 @@
     padding: 0; }
   .dglib-carousel-control:hover {
     background-color: #028a9a; }
+
+/*
+ * @package dineshghimire
+ * @subpackage dglib
+ * @since 1.0.0
+ */
+/*
+ * @package dineshghimire
+ * @subpackage dglib
+ * @since 1.0.0
+ */
+.card {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border: none;
+  overflow: visible; }
+
+.card-profile {
+  text-align: center; }
+
+.card-profile .card-avatar {
+  max-width: 130px;
+  max-height: 130px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
+
+.card-avatar img {
+  margin: 0px;
+  width: 100%; }
+
+.card-profile .card-avatar + .card-content {
+  margin-top: 15px; }
+
+.card-profile .card .card-content {
+  padding: 15px 30px; }
+
+.card-description {
+  color: #616161;
+  font-size: 14px; }
+
+.card-profile .card-title {
+  font-size: 1.3em;
+  line-height: 1.55em;
+  color: #3C4858;
+  text-decoration: none;
+  font-weight: 700; }
+
+.card .card-content {
+  padding: 15px 30px; }
+
+.card-profile .lekh-social-icons-wrapper {
+  padding: 0; }
+  .card-profile .lekh-social-icons-wrapper .social-link .fa {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1.2em; }
+
+/*
+ * @package dineshghimire
+ * @subpackage dglib
+ * @since 1.0.0
+ */
+.dglib-social-icons .social-icons a {
+  width: auto;
+  height: auto;
+  color: #fff;
+  padding: 0.5em;
+  font-size: 20px;
+  margin: 5px 2px;
+  line-height: 38px;
+  background: #f88c00;
+  text-align: center;
+  border-radius: 10%;
+  display: inline-block;
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: -o-transform;
+  -moz-transition-property: transform, -moz-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform, -moz-transform, -o-transform;
+  background-color: #f88c00; }
+  .dglib-social-icons .social-icons a .fa {
+    height: 1em;
+    width: 1em;
+    display: block; }
+  .dglib-social-icons .social-icons a:hover {
+    color: #fff;
+    opacity: 0.9;
+    border-radius: 50%;
+    position: relative;
+    -webkit-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg); }
 /*# sourceMappingURL=dg-front-style.css.map */

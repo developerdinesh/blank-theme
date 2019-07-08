@@ -2,7 +2,7 @@
 /**
  * Template Post
  * @package dineshghimire
- * @subpackage dblib
+ * @subpackage dglib
  * @since 1.0.0
  */
 $wp_customize->add_section(
@@ -332,7 +332,7 @@ $wp_customize->add_setting(
     'dglib_enable_related_posts',
     array(
         'default' => 'show',
-        'sanitize_callback' => 'dglib_sanitize_switch_option',
+        'sanitize_callback' => 'esc_attr',
     )
 );
 
@@ -358,7 +358,6 @@ $wp_customize->add_setting(
     'dglib_related_posts_title',
     array(
         'default'    => esc_html__( 'Related Posts', '__Text_Domain__' ),
-        'transport'  => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
     )
 );
@@ -376,7 +375,6 @@ $wp_customize->add_setting(
     'dglib_related_posts_from',
     array(
         'default'    => 'category',
-        'transport'  => 'postMessage',
         'sanitize_callback' => 'esc_attr'
     )
 );

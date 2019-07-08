@@ -230,17 +230,23 @@ if (!function_exists('dglib_is_json')){
 
 if(!function_exists('dglib_get_excerpt')):
 
-    function dglib_get_excerpt($excerpt_length=150, $readmore=true){
+    function dglib_get_excerpt($excerpt_length=150, $readmore=true, $readmore_text=false ){
     	
         $full_content = get_the_content();
         $content_without_shortcode = strip_shortcodes($full_content);
         $content_without_tags = strip_tags($content_without_shortcode);
         $excerpt = substr($content_without_tags, 0, $excerpt_length);
         if($readmore){
-            $default_remore = '... <a href="'.get_the_permalink().'">';
-            $default_remore .= esc_html__('Read More', '__Text_Domain__');
-            $default_remore .= '</a>';
-            $readmore_html = apply_filters( 'excerpt_more', $default_remore );
+            $default_readmore = '<span class="readmore-wrapper">';
+            $default_readmore.= '<a href="'.get_the_permalink().'">';
+            if($readmore_text){
+            	$default_readmore.= esc_html($readmore_text);
+            }else{
+            	$default_readmore.= esc_html__('Read More', '__Text_Domain__');	
+            }
+            $default_readmore.= '</a>';
+            $default_readmore.= '</span>';
+            $readmore_html = apply_filters( 'dglib_excerpt_more', $default_readmore );
             $excerpt .= $readmore_html;
         }
         
@@ -253,9 +259,9 @@ endif;
 
 if(!function_exists('dglib_the_excerpt')):
 
-    function dglib_the_excerpt($excerpt_length=150, $readmore=true){
+    function dglib_the_excerpt($excerpt_length=150, $readmore=true, $readmore_text = false ){
 
-        echo apply_filters( 'the_excerpt', dglib_get_excerpt($excerpt_length, $readmore) );
+        echo apply_filters( 'the_excerpt', dglib_get_excerpt($excerpt_length, $readmore, $readmore_text) );
 
     }
 

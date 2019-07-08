@@ -106,7 +106,13 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
                     'value'     => 'no_sidebar_center',
                     'label'     => esc_html__( 'No sidebar Content Centered', '__Text_Domain__' ),
                     'thumbnail' => get_template_directory_uri() . '/inc/dglib/assets/img/sidebars/no-sidebar-center.png'
-                )
+                ),
+                'both-sidebar' => array(
+                    'id'        => 'post-both-sidebar',
+                    'value'     => 'both_sidebar',
+                    'label'     => esc_html__( 'Both Sidebar', '__Text_Domain__' ),
+                    'thumbnail' => get_template_directory_uri() . '/inc/dglib/assets/img/sidebars/both-sidebar.png'
+                ),
             );
 
             return $sidebar_layouts;
@@ -155,6 +161,10 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
                             'no_sidebar_center' => array(
                                 'label' => esc_html__( 'No Sidebar Center', '__Text_Domain__' ),
                                 'url'   => '%s/inc/dglib/assets/img/sidebars/no-sidebar-center.png'
+                            ),
+                            'both_sidebar' => array(
+                                'label' => esc_html__( 'Both Sidebar', '__Text_Domain__' ),
+                                'url'   => '%s/inc/dglib/assets/img/sidebars/both-sidebar.png'
                             )
                         )
                     )
@@ -267,12 +277,12 @@ if(!class_exists('Dglib_Theme_Settings_Metabox')):
                             </div><!-- .content-header --> 
                             <div class="dglib-tab-content-fields">
                                 <?php if($dglib_tab_fields){
-                                    foreach($dglib_tab_fields as $dglib_field_slug=>$dblib_field_details){
-                                        $dg_metabox_field_name = (isset($dblib_field_details['dg_metabox_field_name'])) ? esc_attr($dblib_field_details['dg_metabox_field_name']) : '';
-                                        $dg_metabox_field_title = (isset($dblib_field_details['dg_metabox_field_title'])) ? esc_attr($dblib_field_details['dg_metabox_field_title']) : '';
-                                        $dg_metabox_field_default = (isset($dblib_field_details['dg_metabox_field_default'])) ? esc_attr($dblib_field_details['dg_metabox_field_default']) : '';
-                                        $dg_metabox_field_type = (isset($dblib_field_details['dg_metabox_field_type'])) ? esc_attr($dblib_field_details['dg_metabox_field_type']) : '';
-                                        $dg_metabox_field_options = (isset($dblib_field_details['dg_metabox_field_options'])) ? $dblib_field_details['dg_metabox_field_options'] : array();
+                                    foreach($dglib_tab_fields as $dglib_field_slug=>$dglib_field_details){
+                                        $dg_metabox_field_name = (isset($dglib_field_details['dg_metabox_field_name'])) ? esc_attr($dglib_field_details['dg_metabox_field_name']) : '';
+                                        $dg_metabox_field_title = (isset($dglib_field_details['dg_metabox_field_title'])) ? esc_attr($dglib_field_details['dg_metabox_field_title']) : '';
+                                        $dg_metabox_field_default = (isset($dglib_field_details['dg_metabox_field_default'])) ? esc_attr($dglib_field_details['dg_metabox_field_default']) : '';
+                                        $dg_metabox_field_type = (isset($dglib_field_details['dg_metabox_field_type'])) ? esc_attr($dglib_field_details['dg_metabox_field_type']) : '';
+                                        $dg_metabox_field_options = (isset($dglib_field_details['dg_metabox_field_options'])) ? $dglib_field_details['dg_metabox_field_options'] : array();
                                         $dglib_metabox_field_name = $dglib_tab_slug.'['.$dglib_field_slug.']';
                                         $dglib_metabox_field_id = 'id_'.$dglib_tab_slug.'_'.$dglib_field_slug;
                                         ?><div class="dglib-metabox-field-single"><?php

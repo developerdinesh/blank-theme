@@ -2,7 +2,7 @@
 /**
  * Bottom Footer
  * @package dineshghimire
- * @subpackage dblib
+ * @subpackage dglib
  * @since 1.0.0
  */
 $wp_customize->add_section(
@@ -21,7 +21,7 @@ $wp_customize->add_section(
  */
 $wp_customize->add_setting(
     'footer_copyright_text', array(
-        'sanitize_callback' => 'absint',
+        'sanitize_callback' => 'sanitize_text_field',
         'default'           => esc_html__( 'Copyright © 2019. All rights reserved.', '__Text_Domain__'),
     )
 );
