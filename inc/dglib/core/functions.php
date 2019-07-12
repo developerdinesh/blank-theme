@@ -330,7 +330,6 @@ if( !function_exists('dglib_array_column') ){
 		$array_col = array();
         foreach ($input as $value) {
             if ( !array_key_exists($columnKey, $value)) {
-                trigger_error("Key \"$columnKey\" does not exist in array");
                 return false;
             }
             if (is_null($indexKey)) {
@@ -338,11 +337,9 @@ if( !function_exists('dglib_array_column') ){
             }
             else {
                 if ( !array_key_exists($indexKey, $value)) {
-                    trigger_error("Key \"$indexKey\" does not exist in array");
                     return false;
                 }
                 if ( ! is_scalar($value[$indexKey])) {
-                    trigger_error("Key \"$indexKey\" does not contain scalar value");
                     return false;
                 }
                 $array_col[$value[$indexKey]] = $value[$columnKey];
