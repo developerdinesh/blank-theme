@@ -99,7 +99,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
     'dglib_notfound_page_title', array(
         'sanitize_callback' => 'esc_attr',
-        'default'           => esc_html__( 'Oops! That page can’t be found.', '__Text_Domain__'),
+        'default'           => esc_html__( 'Oops! That page cant be found.', '__Text_Domain__'),
     )
 );
 $wp_customize->add_control(
