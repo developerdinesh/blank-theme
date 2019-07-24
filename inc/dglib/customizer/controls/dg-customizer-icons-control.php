@@ -47,7 +47,7 @@ if ( !class_exists( 'Dglib_Customize_Icons_Control' )):
 	                    }
 	                    ?>
                     </span>
-                    <input type="hidden" class="dg-icon-value" value="" <?php $this->link(); ?>>
+                    <input type="hidden" class="dg-icon-value" value="<?php echo esc_attr($value);  ?>" <?php $this->link(); ?>>
                 </span>
             </label>
 			<?php

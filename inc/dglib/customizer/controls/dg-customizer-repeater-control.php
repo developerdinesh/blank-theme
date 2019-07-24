@@ -95,8 +95,9 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
                                     <span class="description customize-control-description"><?php echo esc_html( $description ); ?></span>
 									<?php
 								}
-								$new_value = '';
+								
 								$default   = isset( $field_single['default'] ) ? $field_single['default'] : '';
+								$new_value = $default; // New value is saved value but this is repeater field so we need to set saved value is default value
 
 								switch ( $field_single['type'] ) {
 									case 'text':
@@ -129,7 +130,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 										break;
 
 									case 'color':
-										echo '<input class="dg-color-picker" data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="text" value="' . esc_url( $new_value ) . '"/>';
+										echo '<input class="dg-color-picker" data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="text" value="' . esc_attr( $new_value ) . '"/>';
 										break;
 									case 'reaction':
 										$reaction_default_val = 'like';
@@ -175,12 +176,16 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
                                                 <?php
                                                 $fa_icon_list_array = dglib_fa_iconslist();
                                                 foreach ( $fa_icon_list_array as $single_icon ) {
-                                                    echo '<span class="single-icon"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
+                                                    if( $default == $single_icon ) {
+                                                    	echo '<span class="dg-single-icon selected"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
+                                                    } else {
+                                                    	echo '<span class="dg-single-icon"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
+                                                    }
                                                 }
                                                 ?>
                                             </span>
                                             <?php
-                                            echo '<input class="dg-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
+                                            echo '<input class="dg-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $default ) . '"/>';
                                             ?>
                                         </span>
 										<?php
@@ -262,7 +267,7 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
 											echo '</select>';
 											break;
 										case 'color':
-											echo '<input class="dg-color-picker" data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="text" value="' . esc_url( $new_value ) . '"/>';
+											echo '<input class="dg-color-picker" data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="text" value="' . esc_attr( $new_value ) . '"/>';
 											break;
 										case 'reaction':
 										?>
@@ -311,15 +316,15 @@ if ( ! class_exists( 'Dglib_Customizer_Repeater_Control' )):
                                                     $fa_icon_list_array = dglib_fa_iconslist();
                                                     foreach ( $fa_icon_list_array as $single_icon ) {
                                                         if( $new_value == $single_icon ) {
-                                                            echo '<span class="single-icon selected"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
+                                                            echo '<span class="dg-single-icon selected"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
                                                         } else {
-                                                            echo '<span class="single-icon"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
+                                                            echo '<span class="dg-single-icon"><i class="fa '. esc_attr( $single_icon ) .'"></i></span>';
                                                         }
                                                     }
                                                     ?>
                                                 </span>
                                                 <?php
-                                                echo '<input class="te-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
+                                                echo '<input class="dg-icon-value"  data-default="' . esc_attr( $default ) . '" data-name="' . esc_attr( $key ) . '" type="hidden" value="' . esc_attr( $new_value ) . '"/>';
                                                 ?>
                                             </span>
 											<?php
