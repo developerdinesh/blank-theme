@@ -27,4 +27,4 @@ Great that you are considering supporting the project. You have a lot of ways to
 License
 --------------------------------------
 
-Blank Theme - WordPress Theme Boilerplate is licensed under the [MIT license](https://opensource.org/licenses/MIT). I don't know about other license policy but my main policy is it's simply free and you can use this blank theme anywhere commercial, non commercial or any purpose. 
+Blank Theme - WordPress Theme Boilerplate is licensed under the [MIT license](https://opensource.org/licenses/MIT). I don't know about other license policy but my main policy is it's simply free and you can use this blank theme anywhere commercial, non commercial or any purpose. If you need any support just hit this url(https://dinesh-ghimire.com.np).
