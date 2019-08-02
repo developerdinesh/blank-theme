@@ -2,9 +2,9 @@
 /**
  * Theme Index Section for our theme.
  *
- * @package ThemeGrill
- * @subpackage ColorMag
- * @since ColorMag 1.0
+ * @package __Author__
+ * @subpackage __Theme_Name__
+ * @since __Theme_Name__ 1.0.0
  */
 get_header();
 do_action( 'dglib_breadcrumbs_section_template' );
