@@ -12,19 +12,7 @@ There are two type of use blank theme. One is just copy blank theme and modify i
 1. Copy entire blank theme and start theming: When you copy entire blank theme folder you need to understand about their functions first. Just replace all functions prefix to your theme prefix and replace your text domain as per your theme text domain.
 2. Copy only dglib folder: The blank theme core features is only dglib folder. Other files are just showing how to use dglib library. So if you want to copy dglib it's so simple. Just copy dglib folder to theme folder anywhere you needed and require inc.php file inner dglib folder from functions.php or related file.
 
-Contributing
---------------------------------------
-
-Great that you are considering supporting the project. You have a lot of ways to help "Blank Theme" grow. I appreciate all contributions, even the smallest.
-
-1. Report an issue
-2. Propose a feature
-3. Send a pull request
-4. Star project on the GitHub
-5. Tell about project around your community
-
-
 License
 --------------------------------------
 
-Blank Theme - WordPress Theme Boilerplate is licensed under the [MIT license](https://opensource.org/licenses/MIT). I don't know about other license policy but my main policy is it's simply free and you can use this blank theme anywhere commercial, non commercial or any purpose. If you need any support just hit this url(https://dinesh-ghimire.com.np). Also not necessery to give credit to me.
+Blank Theme - WordPress Theme Boilerplate is licensed under the [MIT license](https://opensource.org/licenses/MIT). It's simply free and you can use this blank theme anywhere commercial, non commercial or any purpose. If you need any support just hit this url(https://dinesh-ghimire.com.np). Also not necessery to give credit to me.
