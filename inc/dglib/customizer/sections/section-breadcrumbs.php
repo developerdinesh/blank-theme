@@ -21,7 +21,7 @@ $wp_customize->add_section(
 $wp_customize->add_setting(
     'dglib_breadcrumbs_layout', 
     array(
-        'sanitize_callback' => 'esc_attr',
+        'sanitize_callback' => 'dglib_sanitize_breadcrumbs_layout',
         'default' => 'layout1'
     )
 );

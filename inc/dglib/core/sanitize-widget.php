@@ -125,18 +125,37 @@ if( ! function_exists( 'dglib_sanitize_repeater' ) ) :
 					$repeater_field_value = isset($repeater_row[$repeater_field_name]) ? $repeater_row[$repeater_field_name] : '';
 					$sanitize_repeater_value[$row_index][$repeater_field_name] = dg_widgets_updated_field_value( $repeater_field,  $repeater_field_value);
 
-					/*switch($repeater_field_type){
-						case 'url':
-						$sanitize_repeater_value[$row_index][$repeater_field_name] = esc_url_raw( $repeater_field_value  );
-						case 'upload':
-						$sanitize_repeater_value[$row_index][$repeater_field_name] = esc_url_raw( $repeater_field_value  );
-						default:
-						$sanitize_repeater_value[$row_index][$repeater_field_name] = wp_kses_post( sanitize_text_field( $repeater_field_value  ) );
-						break;
-					}*/
 				}
 			}
 		}
 		return $sanitize_repeater_value;
+	}
+endif;
+
+/**
+ * Function to sanitize target
+ *
+ * @since 1.0.0
+ *
+ * @param $link_target
+ * @return array
+ *
+ */
+if( ! function_exists( 'dglib_sanitize_link_target' ) ) :
+	function dglib_sanitize_link_target( $target_value ) {
+		
+		$new_field_value = '';
+		switch ($target_value){
+			case '_blank':
+			case '_self':
+				$new_field_value = $target_value;
+				break;
+			default:
+				$new_field_value = '';
+				break;
+		}
+
+		return $new_field_value;
+
 	}
 endif;
